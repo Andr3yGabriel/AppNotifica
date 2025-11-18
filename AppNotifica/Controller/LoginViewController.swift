@@ -1,0 +1,24 @@
+//
+//  LoginViewController.swift
+//  AppNotifica
+//
+//  Created by Andrey Goncalves on 18/11/25.
+//
+
+import Foundation
+import UIKit
+
+class LoginViewController: UIViewController {
+    
+    var viewMain = LoginView()
+    
+    override func loadView() {
+        self.view = viewMain
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Login"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+}
