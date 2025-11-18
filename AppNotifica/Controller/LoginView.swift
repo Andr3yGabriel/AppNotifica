@@ -11,89 +11,32 @@ import UIKit
 class LoginView: UIView {
     // Construtor da View
     override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = .white
-        setupVisualElements()
+        super.init(frame: frame) // Chama o frame da superclasse
+        self.backgroundColor = .viewBackgroundColor // Define o background como branco
+        setupVisualElements() // Chama a função de inicialização dos componentes visuais na tela
     }
     
     // Cria a imagem do login
-    var imageLogin: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "logo-login")
-        image.contentMode = .scaleAspectFit
-        image.translatesAutoresizingMaskIntoConstraints = false
-       
-        return image
-    }()
+    var imageLogin = ImageDefault(image: "logo-login")
     
     // Cria a label abaixo da imagem do login
-    var imageLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor(red: 0.541, green: 0.541, blue: 0.557, alpha: 1)
-        label.font = UIFont(name: "SFProDisplay-Ligt", size: 16)
-        label.text = "Registre e gerencie as ocorrências do seu IF"
-        label.translatesAutoresizingMaskIntoConstraints = false
-       
-        return label
-    }()
+    var imageLabel = LabelDefault(text: "Registre e gerencie as ocorrências do seu IF", font: "SFProDisplay-Ligt")
     
     // Cria o campo de inserir e-mail
-    var emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        textField.placeholder = "E-mail"
-        textField.translatesAutoresizingMaskIntoConstraints = false
-       
-        return textField
-    }()
+    var emailTextField = TextFieldDefault(text: "E-mail")
     
     // Cria o campo de inserir senha
-    var passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        textField.placeholder = "Senha"
-        textField.translatesAutoresizingMaskIntoConstraints = false
-       
-        return textField
-    }()
+    var passwordTextField = TextFieldDefault(text: "Senha")
     
-    let underlineViewEmail: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.lightGray
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
+    let underlineViewEmail = UnderlineDefault()
     
-    let underlineViewPassword: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.lightGray
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
+    let underlineViewPassword = UnderlineDefault()
     
     // Cria o botão de login
-    var loginButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("LOGAR", for: .normal)
-        button.layer.backgroundColor = UIColor(red: 0.369, green: 0.639, blue: 0.639, alpha: 1).cgColor
-        button.layer.cornerRadius = 14
-        button.translatesAutoresizingMaskIntoConstraints = false
-       
-        return button
-    }()
+    var loginButton = ButtonDefault(text: "LOGAR")
     
     // Cria o botão de registro
-    var registerButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("REGISTRAR", for: .normal)
-        button.layer.backgroundColor = UIColor(red: 0.369, green: 0.639, blue: 0.639, alpha: 1).cgColor
-        button.layer.cornerRadius = 14
-        button.translatesAutoresizingMaskIntoConstraints = false
-       
-        return button
-    }()
+    var registerButton = ButtonDefault(text: "REGISTRAR")
     
     // Função para inserir os elemetos visuais na View
     func setupVisualElements() {
